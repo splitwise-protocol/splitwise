@@ -2,18 +2,6 @@ Splitwise is a decentralized group finance application built natively on the **S
 
 Every group on Splitwise is backed by a **Stellar multisig account** — a real on-chain Stellar account where the group's treasury lives. No middleman holds your funds. No bank. No app company. The money sits directly on the Stellar ledger, and only moves when the group agrees.
 
-### How Splitwise uses Stellar under the hood
-
-When you create a group, Splitwise generates a dedicated **Stellar account** for that group and configures it using a `SetOptions` operation. Every member's **Stellar public key (G... address)** is added as a signer with an assigned weight. The group then sets a **signing threshold** — for example, a threshold of 3 means at least 3 members must co-sign any transaction before Stellar will accept it.
-
-All payments between members happen as **Stellar payment operations** — direct, peer-to-peer transfers on the Stellar ledger, settled in **3–5 seconds** with fees as low as **0.00001 XLM**. Members can pay in **XLM** (Stellar's native asset) or **USDC** (a regulated stablecoin issued natively on Stellar by Circle), so there's no price volatility when splitting a dinner bill.
-
-Bill tracking and group rules are enforced by **Soroban smart contracts** — Stellar's native smart contract platform — so the logic is transparent, auditable, and lives on-chain rather than in a centralized server.
-
-Each pending treasury withdrawal is built as a **Stellar transaction envelope** that gets passed around for signatures. Once enough signers (co-signers) have added their **ed25519 signatures** and the weight threshold is met, the transaction is submitted to the **Stellar Horizon API** and executed immediately on the ledger. No one person can move the group's money alone.
-
-In short: Splitwise turns a friend group into a **decentralized treasury** on Stellar, with built-in consensus, instant settlement, and full on-chain transparency — all without needing a bank account or a trusted third party.
-
 ---
 
 ## Core Features
